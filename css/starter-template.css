@@ -1,0 +1,40 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {padding-top: 10px; margin-bottom: 60px;}
+
+.container {;}
+.container .text-muted {margin: 20px 0;}
+
+/* Animated Loading */
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    height: 60px;
+}
+
+@keyframes fadein {
+   from {opacity: 0;}
+   to {opacity: 1;}
+}
+
+.content {
+   animation: fadein 0.5s;
+}
