@@ -1,19 +1,21 @@
 <section>
+
 <article>
-<h1><?php echo $osofflineim; ?> <span class="pull-right">Help</span></h1>
-This is a Offline IM Web Interface for Open Simulator
+    <h1>Help<i class="glyphicon glyphicon-education pull-right"></i></h1>
+    Welcome to the <?php echo $title." v".$version; ?><br />
+    This is a Offline IM V2 Web Interface for OpenSimulator
+
 </article>
 
 <article>
     <h2>Features</h2>
-    Offline IM V1 Compatible<br />
-    Read Oflline IM<br />
-    Delete Oflline IM<br />
+    Read/Delete Oflline IM
 </article>
 
 <article>
     <h2>Requierment</h2>
     Mysql, Php5, Apache<br />
+    Offline IM V2
 </article>
 
 <article>
@@ -29,27 +31,15 @@ This is a Offline IM Web Interface for Open Simulator
     [Messaging]
     InstantMessageModule = InstantMessageModule
     ; MessageTransferModule = MessageTransferModule
-    OfflineMessageModule = OfflineMessageModule
-    OfflineMessageURL = "${Const|BaseURL}/osofflineim/inc/offline.php"
+    OfflineMessageModule = "Offline Message Module V2"
+    StorageProvider = OpenSim.Data.MySQL.dll
     MuteListModule = MuteListModule
     MuteListURL = "${Const|BaseURL}/osofflineim/inc/mute.php"
     ForwardOfflineGroupMessages = true
     </pre>
 
-    <h3>Optional</h3>
-    If you get: "File does not exist: /var/www/osofflineim/RetrieveMessages/"<br />
-    or "System: User is not logged in. Message saved"<br />
-    or "Message not saved"
-    <ol>
-        <li>enable the mod_rewrite.so module in apache</li>
-        <li>Create a .htaccess in osofflineim/inc</li>
-    </ol>
-    <h3>.htaccess</h3>
-    <pre>
-    RewriteEngine On
-    RewriteCond %{REQUEST_URI}  "!^/index.php$"
-    RewriteRule "^(.*)$" "index.php" [L]
-    </pre>
+    <h3>Super Admin</h3>
+    Super Admin can reorder all offline IM id <a href="?reorder">here</a>
 </article>
 
 <article>
@@ -64,7 +54,7 @@ This is a Offline IM Web Interface for Open Simulator
 
 <article>
     <h2>Donation</h2>
-    <?php include_once("inc/paypal.php"); ?>
+    <p><?php include_once("inc/paypal.php"); ?></p>
 </article>
 
 </section>

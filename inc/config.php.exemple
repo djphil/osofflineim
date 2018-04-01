@@ -2,15 +2,19 @@
 session_start();
 header('Content-Type: text/html; charset=utf-8');
 ini_set('magic_quotes_gpc', 0);
-$osofflineim = "OpenSim Offline IM";
-$version = "0.1";
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+$superadmin = "<ADMIN UUID>";
+$title = "OpenSim Offline IM";
+$version = "0.2";
 $debug = TRUE;
 
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "<DB PASS>";
 $dbname = "<DB NAME>";
-$tbname = "osofflineim_message";
+$tbname = "im_offline";
 
 $useTheme = TRUE;
 /* Navbar Style */
@@ -35,5 +39,5 @@ $CLASS_ORDERBY_NAVBAR = "navbar navbar-default";
 // nav-stacked
 // nav-justified
 $CLASS_NAV = "nav navbar-nav";
-$CLASS_ORDERBY_NAV = "nav navbar-nav";  
+$CLASS_ORDERBY_NAV = "nav navbar-nav";
 ?>

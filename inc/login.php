@@ -1,3 +1,4 @@
+<?php if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {die('Access denied ...');} ?>
 <?php
 if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password']))
 {
@@ -16,14 +17,11 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
         WHERE FirstName = ?
         AND LastName = ?
     ");
-
     $sql->bindValue(1, $firstname, PDO::PARAM_STR);
     $sql->bindValue(2, $lastname, PDO::PARAM_STR);
-
     $sql->execute();
-    $rows = $sql->rowCount();
 
-    if ($rows <> 0)
+    if ($sql->rowCount() > 0)
     {
         while ($row = $sql->fetch(PDO::FETCH_ASSOC))
         {
@@ -36,13 +34,10 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
                     FROM auth
                     WHERE UUID = ?
                 ");
-
                 $sql->bindValue(1, $PrincipalID, PDO::PARAM_STR);
-
                 $sql->execute();
-                $rows = $sql->rowCount();
 
-                if ($rows <> 0)
+                if ($sql->rowCount() > 0)
                 {
                     while ($row = $sql->fetch(PDO::FETCH_ASSOC))
                     {
@@ -52,8 +47,7 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
 
                     if ($passwordHash <> "")
                     {
-                        $md5Password   = md5(md5($password).":".$passwordSalt);
-                        // $md5Password    = $passwordHash;
+                        $md5Password = md5(md5($password).":".$passwordSalt);
 
                         if ($passwordHash == $md5Password)
                         {
